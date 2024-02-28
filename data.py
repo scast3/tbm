@@ -4,10 +4,11 @@ import matplotlib.pyplot as plt
 from nptdms import TdmsFile
 import numpy as np
 import os # use for file navigation
+from scipy.signal import stft # STFT
 
 
-# definitely fix this filepath to be universal, it kinda sucks
-tdms_path = '/Users/User/Desktop/Mines 3rd Year/Vibration Freq Data Analysis/raw/10/12/Vibe_Continuous_230521_124306.tdms'
+# moves up to parent folder '..' and opens the 'raw' folder for raw data
+tdms_path = '../raw/10/12/Vibe_Continuous_230521_124306.tdms'
 
 
 tdms_file = TdmsFile.read(tdms_path)
