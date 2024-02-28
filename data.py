@@ -5,9 +5,15 @@ from nptdms import TdmsFile
 import numpy as np
 import os # use for file navigation
 
-tdms_file = TdmsFile.read("10/12/Vibe_Continuous_230521_124306.tdms")
 
-channel_data = [] # array for storing the data for all channels
+# definitely fix this filepath to be universal, it kinda sucks
+tdms_path = '/Users/User/Desktop/Mines 3rd Year/Vibration Freq Data Analysis/raw/10/12/Vibe_Continuous_230521_124306.tdms'
+
+
+tdms_file = TdmsFile.read(tdms_path)
+
+channel_data = [] # 2D array for storing the data for all channels
+
 for i in range(0,9):
     channel_data.append(tdms_file["Time Domain"][f"Channel_0{i}"].data)
 
