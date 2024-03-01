@@ -7,8 +7,17 @@ import os # use for file navigation
 from scipy.signal import stft # STFT
 
 
+"""
+year = input("Year (23 or 24): ")
+month = input("Month (1-12): ")
+day = input("Day: ")
+time = input("Time (0-23): ")
+"""
 # moves up to parent folder '..' and opens the 'raw' folder for raw data
-tdms_path = '../raw/10/12/Vibe_Continuous_230521_124306.tdms'
+# might need to cd into python_scripts depending on working directory
+tdms_path = f'../raw/10/12/Vibe_Continuous_230521_124306.tdms'
+
+#tdms_path = 'C:/Users/User/Desktop/Mines 3rd Year/Vibration Freq Data Analysis/test.tdms'
 
 dt = 1/3000 # based on sampling rate
 
