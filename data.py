@@ -44,3 +44,4 @@ plt.ylabel("Amplitude")
 plt.title("Data from TDMS file")
 plt.legend()
 plt.show()
+
