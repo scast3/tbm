@@ -12,8 +12,12 @@ class BDV_data:
         self.window_length = window_length
         self.raw_data = []
         self.start_time = 0
+        self.time = []
+        #  in the near future, time array needs to account for for start time
 
     def load_tdms_file(self):
+
+        # need to fix time array
         try:
             tdms_file = TdmsFile.read(tdms_path)
             prop = tdms_file.properties
@@ -33,10 +37,10 @@ class BDV_data:
 
     def plot_raw_data(self):
         num_samples = len(self.raw_data[0])
-        time = np.linspace(0, num_samples - 1, num_samples)
+        self.time = np.linspace(0, num_samples - 1, num_samples)
 
         for i in range(0,9):
-            plt.plot(time, self.raw_data[i], label=f"Channel {i}")
+            plt.plot(self.time, self.raw_data[i], label=f"Channel {i}")
 
         plt.xlabel("Time")
         plt.ylabel("Amplitude")
@@ -55,6 +59,7 @@ class BDV_data:
         plt.show()
 
     def calc_BDV(self):
+        
         print("bdv placeholder")
 
 # main code:
