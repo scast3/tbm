@@ -45,3 +45,13 @@ plt.title("Data from TDMS file")
 plt.legend()
 plt.show()
 
+# Plotting STFT
+for i in range(9):
+    f, t, Zxx = stft(channel_data[i], window = "hann", fs=dt, nperseg=512)
+    plt.figure()
+    plt.pcolormesh(t, f, np.abs(Zxx), shading='gouraud')
+    plt.colorbar(label='Magnitude')
+    plt.title(f'Unfiltered Spectrogram for Channel {i}')
+    plt.xlabel('Time')
+    plt.ylabel('Frequency [Hz]')
+    plt.show()
