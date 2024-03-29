@@ -35,7 +35,7 @@ for i in range(0,9):
 
 num_samples = len(channel_data[0])
 time = np.linspace(0, num_samples - 1, num_samples)
-
+print(num_samples)
 for i in range(0,9):
     plt.plot(time, channel_data[i], label=f"Channel {i}")
 
@@ -53,5 +53,11 @@ for i in range(9):
     plt.colorbar(label='Magnitude')
     plt.title(f'Unfiltered Spectrogram for Channel {i}')
     plt.xlabel('Time')
-    plt.ylabel('Frequency [Hz]')
+    plt.ylabel('Frequency')
     plt.show()
+
+# iterating through each channel, no plot
+for i in range(9):
+    f, t, Zxx = stft(channel_data[i], window = "hann", fs=dt, nperseg=512)
+    # iterating through timesteps
+    
