@@ -122,10 +122,9 @@ tdms_path = '../raw/10/12/Vibe_Continuous_230521_124306.tdms'
 
 plotter = BDV_data(tdms_path)
 plotter.load_tdms_file()
-#plotter.plot_raw_data()
-#plotter.plot_stft_data(1)
-#plotter.calc_BDV()
-print(plotter.get_data())
+
+# get_data() outputs the 2D array with the columns being the statistical metric and the rows are the values per channel
+output_array = plotter.get_data()
 
 
 # TODO next meeting 4/5
