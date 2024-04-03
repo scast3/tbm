@@ -25,7 +25,6 @@ tdms_file = TdmsFile.read(tdms_path)
 prop = tdms_file.properties
 start_time = prop['DateTime'] # getting the time in which data started being collected
 
-print(start_time)
 
 channel_data = [] # 2D array for storing the data for all channels
 
@@ -35,7 +34,7 @@ for i in range(0,9):
 
 num_samples = len(channel_data[0])
 time = np.linspace(0, num_samples - 1, num_samples)
-print(num_samples)
+
 for i in range(0,9):
     plt.plot(time, channel_data[i], label=f"Channel {i}")
 
