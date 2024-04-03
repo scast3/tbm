@@ -20,7 +20,7 @@ class BDV_data:
 
     def load_tdms_file(self):
 
-        # need to fix time array
+        # need to fix time array sometime in the future
         try:
             tdms_file = TdmsFile.read(tdms_path)
             prop = tdms_file.properties
@@ -53,7 +53,7 @@ class BDV_data:
 
     # plot min, max, rms, 1st quartile, mean, 3rd quartile
     def get_data(self):
-        out_2d_array = []
+        
         labels = ["minimum", "maximum", "root mean square", "1Q", "mean", "3Q"]
         mins = []
         maxs = []
@@ -71,6 +71,8 @@ class BDV_data:
             means.append(np.mean(channel_data))
             thirdqs.append(np.percentile(channel_data, 75))
         
+        out_2d_array = [mins, maxs, rmss, firstqs, means, thirdqs]
+        return out_2d_array
     
     def plot_avg_data(self):
         print("avg placeholder")
@@ -89,6 +91,8 @@ class BDV_data:
         plt.ylabel('Frequency')
         plt.show()
 
+
+    # TODO finish this soon
     # still working on this
     def calc_BDV(self):
 
@@ -121,7 +125,7 @@ plotter.load_tdms_file()
 #plotter.plot_raw_data()
 #plotter.plot_stft_data(1)
 #plotter.calc_BDV()
-plotter.get_data()
+print(plotter.get_data())
 
 
 # TODO next meeting 4/5
